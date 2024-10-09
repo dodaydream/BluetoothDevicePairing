@@ -1,4 +1,6 @@
 # BluetoothDevicePairing
+
+Modified: add back DevicePin mode
 Console utility to discover and pair Bluetooth and Bluetooth Low Energy devices.
 The utility also allows to connect and disconnect from audio Bluetooth devices.
 * If you pair a device that is not already paired, the utility will also connect to it (this is the default behavior of Windows Bluetooth API)<br>
