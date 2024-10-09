@@ -49,6 +49,7 @@ internal static class DevicePairer
 
         var res = pairingInfo.Custom.PairAsync(Windows.Devices.Enumeration.DevicePairingKinds.ConfirmOnly |
                                                Windows.Devices.Enumeration.DevicePairingKinds.ProvidePin |
+                                               Windows.Devices.Enumeration.DevicePairingKinds.DisplayPin |
                                                Windows.Devices.Enumeration.DevicePairingKinds.ConfirmPinMatch,
                                                Windows.Devices.Enumeration.DevicePairingProtectionLevel.None)
                                     .GetAwaiter().GetResult().Status;
@@ -72,6 +73,12 @@ internal static class DevicePairer
                 Console.WriteLine("Pairing mode: ProvidePin");
                 Console.WriteLine($"Pin is requested by the device. Using '{pin}' as a pin code");
                 args.Accept(pin);
+                return;
+
+            case Windows.Devices.Enumeration.DevicePairingKinds.DisplayPin:
+                Console.WriteLine("Pairing mode: DisplayPin");
+                Console.WriteLine($"Please enter '{pin}' on your device");
+                args.Accept();
                 return;
 
             case Windows.Devices.Enumeration.DevicePairingKinds.ConfirmPinMatch:
