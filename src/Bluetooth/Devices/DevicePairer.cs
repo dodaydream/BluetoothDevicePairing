@@ -76,9 +76,9 @@ internal static class DevicePairer
                 return;
 
             case Windows.Devices.Enumeration.DevicePairingKinds.DisplayPin:
-                args.Accept();
+                args.Accept(pin);
                 Console.WriteLine("Pairing mode: DisplayPin");
-                Console.WriteLine($"Please enter '{pin}' on your device, device pin code: '{args.Pin}'");
+                Console.WriteLine($"Please enter '{pin}' '{args.Pin}' on your device");
                 return;
 
             case Windows.Devices.Enumeration.DevicePairingKinds.ConfirmPinMatch:
